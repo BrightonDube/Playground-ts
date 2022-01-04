@@ -1,6 +1,14 @@
-var hello = 'Hello World';
-console.log(a);
+var hello = 'Hello';
 var sayHello = function (name) {
-    return "Hello ".concat(name);
+    return "".concat(hello, " ").concat(name);
 };
-f();
+console.log(sayHello('Brighton'));
+var user = {
+    name: 'John',
+    age: 36,
+    sayHello: function (name) {
+        return "Hello ".concat(name);
+    }
+};
+console.log(user.name);
+console.log(user.sayHello(user.name));
