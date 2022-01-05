@@ -72,3 +72,11 @@ var Admin = /** @class */ (function (_super) {
 var admin = new Admin('Elon', 'Musk');
 admin.setEditor('Joe Biden');
 console.log(admin.getEditor());
+//Enums in Typescript
+var StatusEnum;
+(function (StatusEnum) {
+    StatusEnum["notStarted"] = "not started";
+    StatusEnum["inProgress"] = "in progress";
+    StatusEnum["done"] = "done!";
+})(StatusEnum || (StatusEnum = {}));
+console.log(StatusEnum.done);

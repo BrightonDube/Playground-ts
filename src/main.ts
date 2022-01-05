@@ -90,3 +90,12 @@ class Admin extends User {
 const admin = new Admin('Elon', 'Musk')
 admin.setEditor('Joe Biden')
 console.log(admin.getEditor())
+
+//Enums in Typescript
+enum StatusEnum {
+    notStarted = 'not started',
+    inProgress = 'in progress',
+    done = 'done!',
+}
+
+console.log(StatusEnum.done)
