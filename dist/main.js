@@ -20,6 +20,21 @@ var helloWorld = function () {
 };
 //unknown data type
 var unKnown;
-//usefull for converting string types to number e.g.
+//usefull for typecasting/type assertions e.g.
 var pageNumber = '1';
 var numericPageNumber = pageNumber; //no error :)
+//every class that implements UserInterface must implement the getFullName method
+var User = /** @class */ (function () {
+    function User(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    User.prototype.getFullName = function () {
+        return this.firstName + ' ' + this.lastName;
+    }; // here we implement the getFullName method as required by the interface
+    return User;
+}());
+//Now we can create instances of this class
+var user1 = new User('Adam', 'Smith');
+// user1.firstName trying to do this will give us an error because firstName property can only be accessed inside the class due to the "private" declaration.
+console.log(user1.getFullName());

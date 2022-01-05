@@ -41,6 +41,34 @@ const helloWorld = (): void => {
 //unknown data type
 let unKnown: unknown
 
-//usefull for converting string types to number e.g.
+//usefull for typecasting/type assertions e.g.
 let pageNumber: string = '1'
 let numericPageNumber: number = pageNumber as unknown as number //no error :)
+
+//Classes in typescript
+interface UserInterface2 {
+    getFullName(): string
+}
+
+//every class that implements UserInterface must implement the getFullName method
+
+class User implements UserInterface2 {
+    private firstName: string //only accessible in the class
+    protected lastName: string //only accessible in the class or children that inherit the class
+
+    constructor(firstName: string, lastName: string) {
+        this.firstName = firstName
+        this.lastName = lastName
+    }
+
+    getFullName() {
+        return this.firstName + ' ' + this.lastName
+    } // here we implement the getFullName method as required by the interface
+}
+
+//Now we can create instances of this class
+
+const user1 = new User('Adam', 'Smith')
+// user1.firstName trying to do this will give us an error because firstName property can only be accessed inside the class due to the "private" declaration.
+
+console.log(user1.getFullName())
