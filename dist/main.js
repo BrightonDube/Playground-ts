@@ -1,3 +1,18 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var hello = 'Hello';
 var sayHello = function (name) {
     return "".concat(hello, " ").concat(name);
@@ -38,3 +53,22 @@ var User = /** @class */ (function () {
 var user1 = new User('Adam', 'Smith');
 // user1.firstName trying to do this will give us an error because firstName property can only be accessed inside the class due to the "private" declaration.
 console.log(user1.getFullName());
+//Inheritence
+//************ */
+/*We can create classes that inherit properties of other classes. These children classes can override properties from the parent class or add their own unique properties*/
+var Admin = /** @class */ (function (_super) {
+    __extends(Admin, _super);
+    function Admin() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Admin.prototype.setEditor = function (editor) {
+        this.editor = editor;
+    };
+    Admin.prototype.getEditor = function () {
+        return this.editor;
+    };
+    return Admin;
+}(User));
+var admin = new Admin('Elon', 'Musk');
+admin.setEditor('Joe Biden');
+console.log(admin.getEditor());

@@ -72,3 +72,21 @@ const user1 = new User('Adam', 'Smith')
 // user1.firstName trying to do this will give us an error because firstName property can only be accessed inside the class due to the "private" declaration.
 
 console.log(user1.getFullName())
+
+//Inheritence
+//************ */
+/*We can create classes that inherit properties of other classes. These children classes can override properties from the parent class or add their own unique properties*/
+
+class Admin extends User {
+    private editor: string
+    setEditor(editor: string): void {
+        this.editor = editor
+    }
+    getEditor(): string {
+        return this.editor
+    }
+}
+
+const admin = new Admin('Elon', 'Musk')
+admin.setEditor('Joe Biden')
+console.log(admin.getEditor())
